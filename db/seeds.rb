@@ -1,0 +1,25 @@
+import_duty = Tax.create(name: 'import duty', rate: 0.05)
+basic_tax = Tax.create(name: 'basic sales tax', rate: 0.1)
+
+book = Category.create(name: 'book')
+food = Category.create(name: 'food')
+medical = Category.create(name: 'medical')
+perfume = Category.create(name: 'perfume', tax: basic_tax)
+disk = Category.create(name: 'CD', tax: basic_tax)
+
+import = ProductType.create(name: 'imported', tax: import_duty)
+
+pcs = Unit.create(name: 'pcs')
+bottle = Unit.create(name: 'bottle')
+box = Unit.create(name: 'box')
+packet = Unit.create(name: 'packet')
+
+Product.create(name: 'book', category: book, price: 12.49, unit: pcs)
+Product.create(name: 'music CD', category: disk, price: 14.99, unit: pcs)
+Product.create(name: 'chocolate bar', category: food, price: 0.85, unit: pcs)
+Product.create(name: 'chocolates', category: food, price: 10.00, product_types: [import], unit: box)
+Product.create(name: 'perfume', category: perfume, price: 47.50, product_types: [import], unit: bottle)
+Product.create(name: 'perfume', category: perfume, price: 27.99, product_types: [import], unit: bottle)
+Product.create(name: 'perfume', category: perfume, price: 18.99, unit: bottle)
+Product.create(name: 'headache pills', category: medical, price: 9.75, unit: packet)
+Product.create(name: 'chocolates', category: food, product_types: [import], price: 11.25, unit: box)
