@@ -10,5 +10,8 @@ gem 'sqlite3', :group => :development
 gem 'pg', :group => :production
 
 gem 'unicorn', :group => :production
+gem 'rails_12factor', group: :production
+
+ruby "2.2.1"
 
 
